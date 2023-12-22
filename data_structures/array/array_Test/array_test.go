@@ -7,19 +7,30 @@ import (
 	Array "github.com/Mdromi/dsa-cp/data_structures/array"
 )
 
-func TestSearchElement(t *testing.T) {
-	numbers := []int{5, 20, 28, 290, 30}
-	targetValue := 28
-	expectedIndex := 2
+func TestDeleteElementOfArrayAnyPosition(t *testing.T) {
+	// Test Case 1: Delete at the start
+	numbers1 := []int{5, 20, 28, 290, 30}
+	deletedIndex1 := 0
+	afterDeletingValue1 := []int{20, 28, 290, 30}
+	RunDeleteElementTest(t, numbers1, deletedIndex1, afterDeletingValue1)
 
-	result := Array.SearchElementIndex(numbers, targetValue)
+	// Test Case 2: Delete in the middle
+	numbers2 := []int{5, 20, 28, 290, 30}
+	deletedIndex2 := 2
+	afterDeletingValue2 := []int{5, 20, 290, 30}
+	RunDeleteElementTest(t, numbers2, deletedIndex2, afterDeletingValue2)
 
-	if result == expectedIndex {
-		fmt.Printf("Value %d found at index %d\n", targetValue, result)
-	} else {
-		fmt.Println("Target value not found")
-		t.Errorf("Expected index %d, but got %d", expectedIndex, result)
-	}
+	// Test Case 3: Delete at the end
+	numbers3 := []int{5, 20, 28, 290, 30}
+	deletedIndex3 := len(numbers3) - 1
+	afterDeletingValue3 := []int{5, 20, 28, 290}
+	RunDeleteElementTest(t, numbers3, deletedIndex3, afterDeletingValue3)
+
+	// Test Case 4: Delete insertion index
+	numbers4 := []int{5, 20, 28, 290, 30}
+	deletedIndex4 := 3
+	afterDeletingValue4 := []int{5, 20, 28, 30}
+	RunDeleteElementTest(t, numbers4, deletedIndex4, afterDeletingValue4)
 }
 
 func TestInsertElementOfArrayAnyPosition(t *testing.T) {
@@ -50,4 +61,19 @@ func TestInsertElementOfArrayAnyPosition(t *testing.T) {
 	targetedIndex4 := 3
 	afterIndexingValue4 := []int{5, 20, 28, 45, 290, 30}
 	RunInsertElementTest(t, numbers4, indexingValue4, targetedIndex4, afterIndexingValue4)
+}
+
+func TestSearchElement(t *testing.T) {
+	numbers := []int{5, 20, 28, 290, 30}
+	targetValue := 28
+	expectedIndex := 2
+
+	result := Array.SearchElementIndex(numbers, targetValue)
+
+	if result == expectedIndex {
+		fmt.Printf("Value %d found at index %d\n", targetValue, result)
+	} else {
+		fmt.Println("Target value not found")
+		t.Errorf("Expected index %d, but got %d", expectedIndex, result)
+	}
 }

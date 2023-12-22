@@ -7,6 +7,24 @@ import (
 	Array "github.com/Mdromi/dsa-cp/data_structures/array"
 )
 
+func RunDeleteElementTest(t *testing.T, numbers []int, deletedIndex int, afterDeletingValue []int) {
+	fmt.Printf("\nOriginal Array: %v\n", numbers)
+	fmt.Printf("Deleted Index: %d\n", deletedIndex)
+
+	// Call the function to insert the value at the specified index
+	result := Array.DeleteElementOfArrayAnyPosition(numbers, deletedIndex)
+
+	fmt.Printf("\nResult: %v\n", result)
+
+	// Check if the result is equal to the expected result
+	if fmt.Sprintf("%v", result) == fmt.Sprintf("%v", afterDeletingValue) {
+		fmt.Printf("\x1b[32m%s\x1b[0m\n", "✔ Test Passed: Value deleted at the correct index")
+	} else {
+		fmt.Printf("\x1b[31m%s\x1b[0m\n", "✘ Test Failed: Target value not deleted at the correct index")
+		t.Errorf("Expected array %v, but got %v", afterDeletingValue, result)
+	}
+}
+
 func RunInsertElementTest(t *testing.T, numbers []int, indexingValue int, targetedIndex int, afterIndexingValue []int) {
 	fmt.Printf("\nOriginal Array: %v\n", numbers)
 	fmt.Printf("Targeted Index: %d\n", targetedIndex)
