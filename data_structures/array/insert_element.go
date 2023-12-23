@@ -2,8 +2,6 @@ package array
 
 import "fmt"
 
-// go test -run
-
 func InsertElementOfArrayAnyPosition(array []int, value int, IndexingPosition int) []int {
 	// Ensure the position is within the array bounds
 	if IndexingPosition < 0 || IndexingPosition > len(array) {

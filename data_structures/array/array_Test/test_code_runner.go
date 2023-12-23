@@ -7,24 +7,39 @@ import (
 	Array "github.com/Mdromi/dsa-cp/data_structures/array"
 )
 
+// RunReverseElementTest runs tests for array reversal functions
+func RunReverseElementTest(t *testing.T, numbers []int, afterReversingArray []int) {
+	fmt.Printf("\nOriginal Array: %v\n", numbers)
+
+	// Test ReverseTheArraySaveSpaceComplexity
+	resultSpaceComplexity := Array.ReverseTheArraySaveSpaceComplexity(numbers)
+	PrintTestResult(t, "ReverseTheArraySaveSpaceComplexity", resultSpaceComplexity, afterReversingArray)
+
+	// Test ReverseTheArrayXOR
+	resultXOR := Array.ReverseTheArrayXOR(numbers)
+	fmt.Println("numbers", numbers)
+	PrintTestResult(t, "ReverseTheArrayXOR", resultXOR, numbers)
+
+	// Test ReverseTheArrayLinearTime
+	resultLinearTime := Array.ReverseTheArrayLinearTime(numbers)
+	PrintTestResult(t, "ReverseTheArrayLinearTime", resultLinearTime, afterReversingArray)
+}
+
+// RunDeleteElementTest runs tests for deleting an element from the array
 func RunDeleteElementTest(t *testing.T, numbers []int, deletedIndex int, afterDeletingValue []int) {
 	fmt.Printf("\nOriginal Array: %v\n", numbers)
 	fmt.Printf("Deleted Index: %d\n", deletedIndex)
 
-	// Call the function to insert the value at the specified index
+	// Call the function to delete the value at the specified index
 	result := Array.DeleteElementOfArrayAnyPosition(numbers, deletedIndex)
 
 	fmt.Printf("\nResult: %v\n", result)
 
-	// Check if the result is equal to the expected result
-	if fmt.Sprintf("%v", result) == fmt.Sprintf("%v", afterDeletingValue) {
-		fmt.Printf("\x1b[32m%s\x1b[0m\n", "✔ Test Passed: Value deleted at the correct index")
-	} else {
-		fmt.Printf("\x1b[31m%s\x1b[0m\n", "✘ Test Failed: Target value not deleted at the correct index")
-		t.Errorf("Expected array %v, but got %v", afterDeletingValue, result)
-	}
+	// Print the test result
+	PrintTestResult(t, "DeleteElementOfArrayAnyPosition", result, afterDeletingValue)
 }
 
+// RunInsertElementTest runs tests for inserting an element into the array
 func RunInsertElementTest(t *testing.T, numbers []int, indexingValue int, targetedIndex int, afterIndexingValue []int) {
 	fmt.Printf("\nOriginal Array: %v\n", numbers)
 	fmt.Printf("Targeted Index: %d\n", targetedIndex)
@@ -34,11 +49,6 @@ func RunInsertElementTest(t *testing.T, numbers []int, indexingValue int, target
 
 	fmt.Printf("\nResult: %v\n", result)
 
-	// Check if the result is equal to the expected result
-	if fmt.Sprintf("%v", result) == fmt.Sprintf("%v", afterIndexingValue) {
-		fmt.Printf("\x1b[32m%s\x1b[0m\n", "✔ Test Passed: Value inserted at the correct index")
-	} else {
-		fmt.Printf("\x1b[31m%s\x1b[0m\n", "✘ Test Failed: Target value not inserted at the correct index")
-		t.Errorf("Expected array %v, but got %v", afterIndexingValue, result)
-	}
+	// Print the test result
+	PrintTestResult(t, "InsertElementOfArrayAnyPosition", result, afterIndexingValue)
 }
