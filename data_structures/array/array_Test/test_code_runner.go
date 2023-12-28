@@ -8,6 +8,22 @@ import (
 	Array "github.com/Mdromi/dsa-cp/data_structures/array"
 )
 
+// RunRemoveDuplicatesValuesFromArray runs tests for removing duplicates value
+func RunRemoveDuplicatesValuesFromArray(t *testing.T, numbers []int, expected []int) {
+	// Remove duplicates from the array
+	result1 := Array.RemoveDuplicatesValuesFromArray(numbers)
+	expected2 := []int{1, 7, 9, 2, 3, 4, 5, 6, 8, 10}
+
+	// Test the removal of duplicates
+	PrintTestResult(t, "RemoveDuplicatesValuesFromArray", result1, expected2, "Duplicates removed successfully", "Duplicates were not removed as expected")
+
+	// Apply left rotation to the array (modify the function name if needed)
+	result2 := Array.RemoveDuplicatesValuesFromArray_saveSpaceComplexity(result1)
+
+	// Test the left rotation
+	PrintTestResult(t, "RemoveDuplicatesValuesFromArray_saveSpaceComplexity", result2, expected, "Duplicates removed with space optimization", "Duplicates were not removed with space optimization as expected")
+}
+
 // RunLeftRotateArrayByOneTest runs tests for left rotating an array by one position
 func RunLeftRotateArrayByOneTest(t *testing.T, numbers []int, expected []int) {
 	// Make a copy of the original array to preserve it
