@@ -2,10 +2,29 @@ package arrayTest
 
 import (
 	"fmt"
+	"reflect"
 	"testing"
 
 	Array "github.com/Mdromi/dsa-cp/data_structures/array"
 )
+
+// RunLeftRotateArrayByOneTest runs tests for left rotating an array by one position
+func RunLeftRotateArrayByOneTest(t *testing.T, numbers []int, expected []int) {
+	// Make a copy of the original array to preserve it
+	originalNumbers := make([]int, len(numbers))
+	copy(originalNumbers, numbers)
+
+	// Left rotate the array by 1 position
+	result := Array.LeftRotateArrayByOne(numbers)
+
+	// Print the test result
+	PrintTestResult(t, "LeftRotateArrayByOne", result, expected, "Array left rotated by one position", "Array did not left rotate as expected")
+
+	// Ensure the original array is preserved
+	if !reflect.DeepEqual(numbers, originalNumbers) {
+		fmt.Println("\x1b[31mWarning:\x1b[0m Original array is not preserved.")
+	}
+}
 
 // RunReverseElementTest runs tests for array reversal functions
 func RunReverseElementTest(t *testing.T, numbers []int, afterReversingArray []int) {
@@ -13,16 +32,15 @@ func RunReverseElementTest(t *testing.T, numbers []int, afterReversingArray []in
 
 	// Test ReverseTheArraySaveSpaceComplexity
 	resultSpaceComplexity := Array.ReverseTheArraySaveSpaceComplexity(numbers)
-	PrintTestResult(t, "ReverseTheArraySaveSpaceComplexity", resultSpaceComplexity, afterReversingArray)
+	PrintTestResult(t, "ReverseTheArraySaveSpaceComplexity", resultSpaceComplexity, afterReversingArray, "Array reversed successfully", "Array did not reverse as expected")
 
 	// Test ReverseTheArrayXOR
 	resultXOR := Array.ReverseTheArrayXOR(numbers)
-	fmt.Println("numbers", numbers)
-	PrintTestResult(t, "ReverseTheArrayXOR", resultXOR, numbers)
+	PrintTestResult(t, "ReverseTheArrayXOR", resultXOR, afterReversingArray, "Array reversed successfully", "Array did not reverse as expected")
 
 	// Test ReverseTheArrayLinearTime
 	resultLinearTime := Array.ReverseTheArrayLinearTime(numbers)
-	PrintTestResult(t, "ReverseTheArrayLinearTime", resultLinearTime, afterReversingArray)
+	PrintTestResult(t, "ReverseTheArrayLinearTime", resultLinearTime, afterReversingArray, "Array reversed successfully", "Array did not reverse as expected")
 }
 
 // RunDeleteElementTest runs tests for deleting an element from the array
@@ -36,7 +54,7 @@ func RunDeleteElementTest(t *testing.T, numbers []int, deletedIndex int, afterDe
 	fmt.Printf("\nResult: %v\n", result)
 
 	// Print the test result
-	PrintTestResult(t, "DeleteElementOfArrayAnyPosition", result, afterDeletingValue)
+	PrintTestResult(t, "DeleteElementOfArrayAnyPosition", result, afterDeletingValue, "Value deleted at the correct index", "Target value not deleted at the correct index")
 }
 
 // RunInsertElementTest runs tests for inserting an element into the array
@@ -50,5 +68,5 @@ func RunInsertElementTest(t *testing.T, numbers []int, indexingValue int, target
 	fmt.Printf("\nResult: %v\n", result)
 
 	// Print the test result
-	PrintTestResult(t, "InsertElementOfArrayAnyPosition", result, afterIndexingValue)
+	PrintTestResult(t, "InsertElementOfArrayAnyPosition", result, afterIndexingValue, "Value inserted at the correct index", "Target value not inserted at the correct index")
 }
