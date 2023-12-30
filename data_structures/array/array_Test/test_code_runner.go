@@ -8,6 +8,44 @@ import (
 	Array "github.com/Mdromi/dsa-cp/data_structures/array"
 )
 
+func RunSecondLargestNumber(t *testing.T, numbers []int, secondLargestNumber int) {
+	fmt.Printf("\nOriginal Array: %v\n", numbers)
+	fmt.Printf("The second largest number is: %d\n", secondLargestNumber)
+
+	// Test LargestNumber
+	result := Array.SecondLargestNumber(numbers)
+	fmt.Printf("The SecondLargestNumber Function Return This Number: %d\n", result)
+
+	successMessage := "Second Largest number is correct."
+	failureMessage := "Second Largest number is incorrect."
+
+	if result == secondLargestNumber {
+		fmt.Printf("\x1b[32m%s\x1b[0m %s\n", "✔ Test Passed:", successMessage)
+	} else {
+		fmt.Printf("\x1b[31m%s\x1b[0m %s\n", "✘ Test Failed:", failureMessage)
+		t.Errorf("Expected: %v, but got %v", secondLargestNumber, result)
+	}
+}
+
+func RunLargestNumber(t *testing.T, numbers []int, largestNumber int) {
+	fmt.Printf("\nOriginal Array: %v\n", numbers)
+	fmt.Printf("The largest number is: %d\n", largestNumber)
+
+	// Test LargestNumber
+	result := Array.LargestNumber(numbers)
+	fmt.Printf("The LargestNumber Function Return This Number: %d\n", result)
+
+	successMessage := "Largest number is correct."
+	failureMessage := "Largest number is incorrect."
+
+	if result == largestNumber {
+		fmt.Printf("\x1b[32m%s\x1b[0m %s\n", "✔ Test Passed:", successMessage)
+	} else {
+		fmt.Printf("\x1b[31m%s\x1b[0m %s\n", "✘ Test Failed:", failureMessage)
+		t.Errorf("Expected: %v, but got %v", largestNumber, result)
+	}
+}
+
 // RunRemoveDuplicatesValuesFromArray runs tests for removing duplicates value
 func RunRemoveDuplicatesValuesFromArray(t *testing.T, numbers []int, expected []int) {
 	// Remove duplicates from the array

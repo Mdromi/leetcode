@@ -9,8 +9,26 @@ import (
 
 // go test -run
 
+func TestSecondLargestNumber(t *testing.T) {
+	// Test Case 1: Remove Duplicates Value
+	numbers1 := []int{1, 7, 7, 9, 9, 2, 3, 4, 5, 6, 7, 8, 9, 10, 8, 9, 10, 1, 5, 4, 1}
+	secondLargestNumber := 9
+
+	// Ren the test
+	RunSecondLargestNumber(t, numbers1, secondLargestNumber)
+}
+
+func TestLargestNumber(t *testing.T) {
+	// Test Case 1: Remove Duplicates Value
+	numbers1 := []int{1, 7, 7, 9, 9, 2, 3, 4, 5, 6, 7, 8, 9, 10, 8, 9, 10, 1, 5, 4, 1}
+	largestNumber := 10
+
+	// Ren the test
+	RunLargestNumber(t, numbers1, largestNumber)
+}
+
 func TestRemoveDuplicatesValuesFromArray(t *testing.T) {
-	// Test Case 1: Left rotate the array by 1 position
+	// Test Case 1: Remove Duplicates Value
 	numbers1 := []int{1, 7, 7, 9, 9, 2, 3, 4, 5, 6, 7, 8, 9, 10, 8, 9, 10, 1, 5, 4, 1}
 
 	// Define the expected array
