@@ -9,6 +9,24 @@ import (
 
 // go test -run
 
+func TestLeadersInAnArray(t *testing.T) {
+	// Test Case 1: Move all zeros to right
+	numbers1 := []int{7, 10, 4, 3, 6, 5, 2}
+	afterFoundLeadersInAnArray := []int{10, 6, 5, 2}
+
+	// Ren the test
+	RunLeadersInAnArray(t, numbers1, afterFoundLeadersInAnArray)
+}
+
+func TestMoveAllZEROSToEnd(t *testing.T) {
+	// Test Case 1: Move all zeros to right
+	numbers1 := []int{0, 8, 5, 0, 0, 10, 0, 20}
+	afterMoveAllZEROSToEnd := []int{8, 5, 10, 20, 0, 0, 0, 0}
+
+	// Ren the test
+	RunMoveAllZEROSToEnd(t, numbers1, afterMoveAllZEROSToEnd)
+}
+
 func TestSecondLargestNumber(t *testing.T) {
 	// Test Case 1: Remove Duplicates Value
 	numbers1 := []int{1, 7, 7, 9, 9, 2, 3, 4, 5, 6, 7, 8, 9, 10, 8, 9, 10, 1, 5, 4, 1}

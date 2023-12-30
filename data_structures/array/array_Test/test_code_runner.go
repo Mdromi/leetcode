@@ -8,6 +8,33 @@ import (
 	Array "github.com/Mdromi/dsa-cp/data_structures/array"
 )
 
+// RunLeadersInAnArray runs tests for getting the leader list value on the array
+func RunLeadersInAnArray(t *testing.T, numbers []int, expected []int) {
+	fmt.Printf("\nOriginal Array: %v\n", numbers)
+
+	// Call the function to delete the value at the specified index
+	afterFoundLeadersInAnArray := Array.LeadersInAnArray(numbers)
+
+	fmt.Printf("\nResult: %v\n", afterFoundLeadersInAnArray)
+
+	// Print the test result
+	PrintTestResult(t, "LeadersInAnArray", afterFoundLeadersInAnArray, expected, "success message", "faield message")
+}
+
+// RunMoveAllZEROSToEnd runs tests for moving the all zeros arrays last
+func RunMoveAllZEROSToEnd(t *testing.T, numbers []int, expected []int) {
+	fmt.Printf("\nOriginal Array: %v\n", numbers)
+
+	// Call the function to delete the value at the specified index
+	afterMoveAllZEROSToEnd := Array.MoveAllZEROSToEnd(numbers)
+
+	fmt.Printf("\nResult: %v\n", afterMoveAllZEROSToEnd)
+
+	// Print the test result
+	PrintTestResult(t, "MoveAllZEROSToEnd", afterMoveAllZEROSToEnd, expected, "success message", "faield message")
+}
+
+// RunSecondLargestNumber runs tests for getting the second largest value
 func RunSecondLargestNumber(t *testing.T, numbers []int, secondLargestNumber int) {
 	fmt.Printf("\nOriginal Array: %v\n", numbers)
 	fmt.Printf("The second largest number is: %d\n", secondLargestNumber)
@@ -27,6 +54,7 @@ func RunSecondLargestNumber(t *testing.T, numbers []int, secondLargestNumber int
 	}
 }
 
+// RunLargestNumber runs tests for getting the largest value
 func RunLargestNumber(t *testing.T, numbers []int, largestNumber int) {
 	fmt.Printf("\nOriginal Array: %v\n", numbers)
 	fmt.Printf("The largest number is: %d\n", largestNumber)
