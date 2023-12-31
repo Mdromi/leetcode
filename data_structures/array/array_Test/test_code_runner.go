@@ -8,6 +8,46 @@ import (
 	Array "github.com/Mdromi/dsa-cp/data_structures/array"
 )
 
+// MaxProfit runs tests for getting the maximum profit
+func RunMaxProfit(t *testing.T, numbers []int, maxProfit int) {
+	fmt.Printf("\nOriginal Array: %v\n", numbers)
+	fmt.Printf("The maximum profit number is: %d\n", maxProfit)
+
+	// Test LargestNumber
+	result := Array.MaxProfit(numbers)
+	fmt.Printf("The MaxProfit Function Return This Number: %d\n", result)
+
+	successMessage := "Maximum profit number is correct."
+	failureMessage := "Maximum profit number is incorrect."
+
+	if result == maxProfit {
+		fmt.Printf("\x1b[32m%s\x1b[0m %s\n", "✔ Test Passed:", successMessage)
+	} else {
+		fmt.Printf("\x1b[31m%s\x1b[0m %s\n", "✘ Test Failed:", failureMessage)
+		t.Errorf("Expected: %v, but got %v", maxProfit, result)
+	}
+}
+
+// RunMaximumDifference runs tests for getting the maximum diffrence value
+func RunMaximumDifference(t *testing.T, numbers []int, maximumDifference int) {
+	fmt.Printf("\nOriginal Array: %v\n", numbers)
+	fmt.Printf("The maximum difference number is: %d\n", maximumDifference)
+
+	// Test LargestNumber
+	result := Array.SecondLargestNumber(numbers)
+	fmt.Printf("The MaximumDifference Function Return This Number: %d\n", result)
+
+	successMessage := "Maximum Difference number is correct."
+	failureMessage := "Maximum Difference number is incorrect."
+
+	if result == maximumDifference {
+		fmt.Printf("\x1b[32m%s\x1b[0m %s\n", "✔ Test Passed:", successMessage)
+	} else {
+		fmt.Printf("\x1b[31m%s\x1b[0m %s\n", "✘ Test Failed:", failureMessage)
+		t.Errorf("Expected: %v, but got %v", maximumDifference, result)
+	}
+}
+
 // RunLeadersInAnArray runs tests for getting the leader list value on the array
 func RunLeadersInAnArray(t *testing.T, numbers []int, expected []int) {
 	fmt.Printf("\nOriginal Array: %v\n", numbers)

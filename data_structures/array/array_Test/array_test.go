@@ -9,8 +9,26 @@ import (
 
 // go test -run
 
+func TestMaxProfit(t *testing.T) {
+	// Test Case 1: getting the max profite
+	numbers1 := []int{1, 5, 3, 8, 12}
+	maxProfit := 13
+
+	// Ren the test
+	RunMaxProfit(t, numbers1, maxProfit)
+}
+
+func TestMaximumDifference(t *testing.T) {
+	// Test Case 1: maximum defference on the array list
+	numbers1 := []int{2, 3, 10, 1, 6, 4, 8, 1}
+	maximumDifference := 8
+
+	// Ren the test
+	RunMaximumDifference(t, numbers1, maximumDifference)
+}
+
 func TestLeadersInAnArray(t *testing.T) {
-	// Test Case 1: Move all zeros to right
+	// Test Case 1: Lederes Nummber On the array
 	numbers1 := []int{7, 10, 4, 3, 6, 5, 2}
 	afterFoundLeadersInAnArray := []int{10, 6, 5, 2}
 
