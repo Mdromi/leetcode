@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"testing"
 
-	Array "github.com/Mdromi/dsa-cp/data_structures/array"
+	Array "github.com/Mdromi/dsa-cp/data_structures/array/easy"
 )
 
 // MaxProfit runs tests for getting the maximum profit
