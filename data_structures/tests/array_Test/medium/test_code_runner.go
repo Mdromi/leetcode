@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	Medium "github.com/Mdromi/dsa-cp/data_structures/array/medium"
+	Medium "github.com/Mdromi/leetcode/data_structures/array/medium"
 )
 
 // 11. Container With Most Water
