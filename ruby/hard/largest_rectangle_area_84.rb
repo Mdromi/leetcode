@@ -22,4 +22,11 @@ def largest_rectangle_area(heights)
   
     max_area
 end
+
+# Test cases
+heights1 = [2, 1, 5, 6, 2, 3]
+heights2 = [2, 4]
+
+puts largest_rectangle_area(heights1) # Output: 10
+puts largest_rectangle_area(heights2) # Output: 4
   
